@@ -1,10 +1,10 @@
 package com.example.raginabijo
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
             if(nameEditText.text.toString().isEmpty()){
                 Toast.makeText(this, "შეიყვანეთ სახელი გეთაყვა" , Toast.LENGTH_SHORT).show()
             }else {
-                val intent = Intent(this, QuestionsActivity::class.java)
+                val intent = Intent(this, LevelActivity::class.java)
                 startActivity(intent)
                 finish()
             }

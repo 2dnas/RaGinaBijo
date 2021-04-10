@@ -1,6 +1,6 @@
 package com.example.raginabijo
 
-object Constants {
+object Level1Questions {
     const val CORRECT_ANSWERS = "correct_answers"
     const val TOTAL_QUESTION = "total_questions"
 
@@ -105,7 +105,7 @@ object Constants {
         questionsList.add(question8)
 
         val question9 : Question = Question(
-            8,
+            9,
             "რას ეუბნება კალდუნა ქეთო მასწავლებელს?",
             R.drawable.kaldunapajare,
             "ჩაგაბარებთ გაკვეთილს",
@@ -117,7 +117,7 @@ object Constants {
         questionsList.add(question9)
 
         val question10 : Question = Question(
-            8,
+            10,
             "აირჩიეთ ანტაგონისტის სახელი",
             R.drawable.treroza,
             "ტრეზორა",

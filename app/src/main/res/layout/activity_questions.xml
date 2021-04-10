@@ -45,6 +45,7 @@
                 android:layout_weight="1"
                 android:max="10"
                 android:maxHeight="50dp"
+                android:layout_gravity="center"
                 android:progress="1"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:indeterminate="false"/>
@@ -53,7 +54,6 @@
                 android:id="@+id/progressTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:padding="15dp"
                 android:textColorHint="#7A8089"
                 android:textSize="14sp"

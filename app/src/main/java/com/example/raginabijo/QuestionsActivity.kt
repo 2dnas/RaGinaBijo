@@ -10,18 +10,44 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_questions.*
 
+
 class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
+    val LEVEL_EXTRA = "level"
+    private val LEVEL_POSITION = "level_position"
+
     private var currentQuestion: Int = 0
     private var questionList: ArrayList<Question>? = null
     private var selectedOption: Int = 0
     private var buttonSubmitted : Boolean = false
     private var correctAnswers : Int = 0
+    private var levelPosition = 1;
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions)
-        questionList = Constants.getQuestions()
+        levelPosition = intent.getIntExtra(LEVEL_POSITION,1)
+
+        val level = intent.getStringExtra(LEVEL_EXTRA)
+        when(level){
+            "ლეველი 1" -> {
+                questionList = Level1Questions.getQuestions()
+            }
+            "ლეველი 2" -> {
+                questionList = Level2Questions.getQuestions()
+            }
+            "ლეველი 3" -> {
+                questionList = Level3Questions.getQuestions()
+            }
+            "ლეველი 4" -> {
+                questionList = Level4Questions.getQuestions()
+            }
+            "ლეველი 5" -> {
+                questionList = Level5Questions.getQuestions()
+            }
+        }
+
+//        questionList = Level1Questions.getQuestions()
         setQuestion()
 
         optionOneTextView.setOnClickListener(this)
@@ -87,8 +113,9 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         else -> {
                             val intent = Intent(this, ResultActivity::class.java)
-                            intent.putExtra(Constants.CORRECT_ANSWERS, correctAnswers)
-                            intent.putExtra(Constants.TOTAL_QUESTION, questionList!!.size)
+                            intent.putExtra(Level1Questions.CORRECT_ANSWERS, correctAnswers)
+                            intent.putExtra(Level1Questions.TOTAL_QUESTION, questionList!!.size)
+                            intent.putExtra(LEVEL_POSITION,levelPosition)
                             startActivity(intent)
                         }
                     }
